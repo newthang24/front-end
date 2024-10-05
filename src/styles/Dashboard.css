@@ -1,0 +1,69 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* 화면 높이보다 작으면 스크롤 가능하게 설정 */
+  padding-bottom: 50px; /* 하단 여백 추가 */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-info {
+  display: flex;
+  justify-content: space-between; /* 박스들 사이에 공간을 주기 위해 수정 */
+  width: 150%; /* 병렬 배치를 위해 적당한 width 설정 */
+  margin: 20px 0;
+}
+
+.info-box {
+  flex: 1; /* 두 개의 박스가 동일한 너비를 차지하게 설정 */
+  margin: 0 10px; /* 각 박스 사이에 약간의 여백 추가 */
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  text-align: center; /* 텍스트가 중앙 정렬되도록 설정 */
+}
+
+.calendar-section {
+  margin: 50px;
+  margin-bottom: 100px; /* 달력 아래 여백 추가 */
+}
+
+.stable-score-chart {
+  width: 80%; /* 꺾은선 그래프의 넓이를 지정 */
+  margin-top: 20px;
+}
+
+/* 선택된 날짜 (react-calendar에서 기본적으로 선택된 날짜를 칠함) */
+.react-calendar__tile--active {
+  background-color: transparent !important; /* 선택된 날짜 배경 제거 */
+  color: inherit !important; /* 색상 기본으로 */
+}
+
+/* 오늘 날짜 (오늘 날짜에 기본적으로 스타일이 적용됨) */
+.react-calendar__tile--now {
+  background-color: #e6ffe6 !important; /* 오늘 날짜 연한 초록색 배경 */
+  color: inherit !important; /* 텍스트 색상 유지 */
+}
+
+/* hover, focus 등 모든 경우의 배경 스타일 초기화 */
+.react-calendar__tile:enabled:focus,
+.react-calendar__tile:enabled:hover {
+  background-color: transparent !important;
+}
+
+/* 타일 내 동그라미 스타일 */
+.highlight {
+  display: inline-block;
+  width: 20px; /* 크기 조절 */
+  height: 20px; /* 크기 조절 */
+  border-radius: 50%;
+  background-color: currentColor; /* 현재 텍스트 색상 (동적 색상 적용) */
+  border: 1px solid black; /* 얇은 검은색 테두리 */
+  position: relative;
+  top: 3px; /* 숫자 글씨와 정렬 */
+  left: 3px; /* 숫자 글씨와 정렬 */
+}

@@ -1,0 +1,30 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.input-field {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.login-btn {
+  padding: 10px;
+  background-color: rgb(104, 179, 101);
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}

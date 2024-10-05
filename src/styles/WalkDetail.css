@@ -1,0 +1,63 @@
+.walk-detail-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+.start-time {
+  display: flex, block;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.walk-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.distance,
+.walk-time {
+  font-size: 24px;
+}
+
+.scores-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.stable-score,
+.walk-score {
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin: 5px auto;
+}
+
+.progress {
+  height: 100%;
+  background-color: green;
+  border-radius: 5px;
+}
+
+.star-rating {
+  font-size: 24px;
+  color: gold;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+}
