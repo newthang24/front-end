@@ -93,119 +93,126 @@ const WalkDetail = () => {
   }
 
   return (
-    <div className="walk-detail-container">
-      {/* 클릭한 날짜 표시 */}
-      <h1>{clickedDate} 산책 기록</h1>
-      {/* 감정 데이터를 표시하는 동그라미 */}
-      <h2
-        style={{
-          color: emotionColors[emotionData?.emotion_large], // emotion_large에 따른 색상 설정
-        }}
-      >
-        {translateEmotion(emotionData?.emotion_large)} {/* 한글로 감정 변환 */}
-      </h2>
-      <div
-        className="emotion-circle"
-        style={{
-          backgroundColor: emotionColors[emotionData?.emotion_large], // emotion_large에 따른 색상 설정
-          width: "100px", // 원의 크기 설정
-          height: "100px", // 원의 크기 설정
-          borderRadius: "50%", // 원으로 만들기 위해 반지름을 50%로 설정
-          display: "flex", // 중앙 정렬을 위한 플렉스박스 설정
-          justifyContent: "center", // 가로 가운데 정렬
-          alignItems: "center", // 세로 가운데 정렬
-          margin: "0 auto", // 부모 요소 내에서 가운데 정렬
-        }}
-      >
-        <span
-          className="emotion-small-text"
+    <section className="walkDetail-allpage">
+      <div className="walk-detail-container">
+        {/* 클릭한 날짜 표시 */}
+        <h1>{clickedDate} 산책 기록</h1>
+        {/* 감정 데이터를 표시하는 동그라미 */}
+        <h2
           style={{
-            color: "white", // 텍스트 색상을 흰색으로 설정
-            fontSize: "18px", // 글씨 크기 설정
-            fontWeight: "bold", // 글씨 두께 설정
+            color: emotionColors[emotionData?.emotion_large], // emotion_large에 따른 색상 설정
           }}
         >
-          {emotionData?.emotion_small}
-        </span>
-      </div>
-
-      {/* 감정의 sentence 표시 */}
-      <p className="emotion-sentence">{emotionData?.sentence}</p>
-
-      {/* UI 영역 추가 시작 */}
-      <div className="walk-info-container">
-        {/* 시작 시간과 종료 시간 */}
-        <div className="time-container">
-          <div className="start-time">
-            <h4>산책 시작 ~ 종료 시간</h4>
-            <p>
-              {walkData.start_time} ~ {walkData.end_time}
-            </p>
-          </div>
+          {translateEmotion(emotionData?.emotion_large)}{" "}
+          {/* 한글로 감정 변환 */}
+        </h2>
+        <div
+          className="emotion-circle"
+          style={{
+            backgroundColor: emotionColors[emotionData?.emotion_large], // emotion_large에 따른 색상 설정
+            width: "100px", // 원의 크기 설정
+            height: "100px", // 원의 크기 설정
+            borderRadius: "50%", // 원으로 만들기 위해 반지름을 50%로 설정
+            display: "flex", // 중앙 정렬을 위한 플렉스박스 설정
+            justifyContent: "center", // 가로 가운데 정렬
+            alignItems: "center", // 세로 가운데 정렬
+            margin: "0 auto", // 부모 요소 내에서 가운데 정렬
+          }}
+        >
+          <span
+            className="emotion-small-text"
+            style={{
+              color: "white", // 텍스트 색상을 흰색으로 설정
+              fontSize: "18px", // 글씨 크기 설정
+              fontWeight: "bold", // 글씨 두께 설정
+            }}
+          >
+            {emotionData?.emotion_small}
+          </span>
         </div>
 
-        {/* 총 산책 거리 및 시간 */}
-        <div className="walk-info">
-          <div className="distance">
-            <p>총 산책 거리</p>
-            <h2>{walkData.distance}</h2>
-            <p>m</p>
-          </div>
-          <div className="walk-time">
-            <p>총 산책 시간</p>
-            <h2>{walkData.actual_walk_time}</h2>
-            <p>분</p>
-          </div>
+        {/* 감정의 sentence 표시 */}
+        <div className="answer">
+          <h3>오늘의 답변</h3>
+          <p className="emotion-sentence">{emotionData?.sentence}</p>
         </div>
-
-        {/* 안정도와 만족도 */}
-        <div className="scores-container">
-          <div className="stable-score">
-            <p>산책 안정도</p>
-            <h2>{walkData.stable_score}</h2>
-            <div className="progress-bar">
-              {/* 프로그래스 바 */}
-              <div
-                className="progress"
-                style={{ width: `${walkData.stable_score}%` }}
-              />
+        {/* UI 영역 추가 시작 */}
+        <div className="walk-info-container">
+          {/* 시작 시간과 종료 시간 */}
+          <div className="time-container">
+            <div className="start-time">
+              <h4>산책 시작 ~ 종료 시간</h4>
+              <p>
+                {walkData.start_time} ~ {walkData.end_time}
+              </p>
             </div>
           </div>
-          <div className="walk-score">
-            <p>산책 만족도</p>
-            <div className="star-rating">
-              {/* walk_score 값이 있을 때만 별을 표시 */}
-              {"★".repeat(
-                Math.max(0, Math.floor(walkData?.walk_score || 0))
-              )}{" "}
-              {/* 음수 방지 */}
-              {"☆".repeat(
-                Math.max(0, 5 - Math.floor(walkData?.walk_score || 0))
-              )}{" "}
-              {/* 음수 방지 */}
+
+          {/* 총 산책 거리 및 시간 */}
+          <div className="walk-info">
+            <div className="distance">
+              <p>총 산책 거리</p>
+              <h2>{walkData.distance}</h2>
+              <p>m</p>
             </div>
-            {/* walk_score가 null일 경우 기본값 0.0으로 처리 */}
-            <p>
-              {walkData?.walk_score != null
-                ? walkData.walk_score.toFixed(1)
-                : "0.0"}
-            </p>
+            <div className="walk-time">
+              <p>총 산책 시간</p>
+              <h2>{walkData.actual_walk_time}</h2>
+              <p>분</p>
+            </div>
+          </div>
+
+          {/* 안정도와 만족도 */}
+          <div className="scores-container">
+            <div className="stable-score">
+              <p>산책 안정도</p>
+              <h2>{walkData.stable_score}</h2>
+              <div className="progress-bar">
+                {/* 프로그래스 바 */}
+                <div
+                  className="progress"
+                  style={{ width: `${walkData.stable_score}%` }}
+                />
+              </div>
+            </div>
+            <div className="walk-score">
+              <p>산책 만족도</p>
+              <div className="star-rating">
+                {/* walk_score 값이 있을 때만 별을 표시 */}
+                {"★".repeat(
+                  Math.max(0, Math.floor(walkData?.walk_score || 0))
+                )}{" "}
+                {/* 음수 방지 */}
+                {"☆".repeat(
+                  Math.max(0, 5 - Math.floor(walkData?.walk_score || 0))
+                )}{" "}
+                {/* 음수 방지 */}
+              </div>
+              {/* walk_score가 null일 경우 기본값 0.0으로 처리 */}
+              <p>
+                {walkData?.walk_score != null
+                  ? walkData.walk_score.toFixed(1)
+                  : "0.0"}
+              </p>
+            </div>
           </div>
         </div>
+        {/* UI 영역 추가 끝 */}
+
+        {/* 이전 버튼: 첫 번째 인덱스가 아닌 경우에만 활성화 */}
+        {currentIndex > 0 && (
+          <button onClick={handlePreviousClick}>이전</button>
+        )}
+
+        {/* 다음 버튼: 마지막 인덱스가 아닌 경우에만 활성화 */}
+        {currentIndex < walkHistoryIds.length - 1 && (
+          <button onClick={handleNextClick}>다음</button>
+        )}
+
+        {/* 메인화면 버튼 추가 */}
+        <button onClick={handleBackToMain}>메인화면</button>
       </div>
-      {/* UI 영역 추가 끝 */}
-
-      {/* 이전 버튼: 첫 번째 인덱스가 아닌 경우에만 활성화 */}
-      {currentIndex > 0 && <button onClick={handlePreviousClick}>이전</button>}
-
-      {/* 다음 버튼: 마지막 인덱스가 아닌 경우에만 활성화 */}
-      {currentIndex < walkHistoryIds.length - 1 && (
-        <button onClick={handleNextClick}>다음</button>
-      )}
-
-      {/* 메인화면 버튼 추가 */}
-      <button onClick={handleBackToMain}>메인화면</button>
-    </div>
+    </section>
   );
 };
 

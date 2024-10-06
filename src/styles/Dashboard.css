@@ -18,7 +18,14 @@ header {
   margin: 20px 0;
 }
 
+.summary-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .info-box {
+  width: 200px;
   flex: 1; /* 두 개의 박스가 동일한 너비를 차지하게 설정 */
   margin: 0 10px; /* 각 박스 사이에 약간의 여백 추가 */
   padding: 10px;
@@ -35,6 +42,13 @@ header {
 .stable-score-chart {
   width: 80%; /* 꺾은선 그래프의 넓이를 지정 */
   margin-top: 20px;
+  margin-left: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-container {
+  margin-left: 70px;
 }
 
 /* 선택된 날짜 (react-calendar에서 기본적으로 선택된 날짜를 칠함) */
@@ -66,4 +80,9 @@ header {
   position: relative;
   top: 3px; /* 숫자 글씨와 정렬 */
   left: 3px; /* 숫자 글씨와 정렬 */
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
 }

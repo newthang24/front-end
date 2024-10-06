@@ -197,21 +197,21 @@ const Dashboard = ({ history }) => {
         )}
         <p>선인장 레벨: {walkData?.cactus_level}</p>
         <p>선인장 현재 점수: {walkData?.cactus_score}</p>
-        <Logout history={history} /> {/* 로그아웃 버튼 추가 */}
       </header>
 
       <main>
         <section className="summary-info">
-          <div className="info-box">
-            <p>누적 산책 거리: {walkData?.total_distance} km</p>
-            <p>누적 산책 시간: {walkData?.total_time} 시간</p>
-          </div>
-          <div className="info-box">
-            <p>최근 스트레스 지수: {walkData?.sri_score}</p>
-            <p>(측정 날짜: {walkData?.sri_date})</p>
+          <div className="summary-box">
+            <div className="info-box">
+              <p>누적 산책 거리: {walkData?.total_distance} km</p>
+              <p>누적 산책 시간: {walkData?.total_time} 시간</p>
+            </div>
+            <div className="info-box">
+              <p>최근 스트레스 지수: {walkData?.sri_score}</p>
+              <p>(측정 날짜: {walkData?.sri_date})</p>
+            </div>
           </div>
         </section>
-
         {sortedStableScores.length > 0 ? (
           <section className="stable-score-chart">
             <h3>산책 안정도</h3>
@@ -220,7 +220,6 @@ const Dashboard = ({ history }) => {
         ) : (
           <p>최신 안정도 데이터가 존재하지 않습니다.</p>
         )}
-
         <section className="calendar-container">
           <h3>{`${year}년 ${month}월`}</h3>
           <Calendar
@@ -232,6 +231,9 @@ const Dashboard = ({ history }) => {
             }}
           />
         </section>
+        <div className="logout">
+          <Logout history={history} /> {/* 로그아웃 버튼 추가 */}
+        </div>
       </main>
     </div>
   );
