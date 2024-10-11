@@ -1,0 +1,8 @@
+const host =
+  window.location.hostname === "localhost"
+    ? "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/"
+    : "api";
+
+export const apiClient = axios.create({
+  baseURL: host,
+});
