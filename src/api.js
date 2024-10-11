@@ -8,8 +8,8 @@ import axios from "axios";
 
 const host =
   window.location.hostname === "localhost"
-    ? "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server" // 로컬일 때
-    : "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server"; // 배포일 때도 동일한 URL 사용
+    ? "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server"
+    : "server";
 
 export const api = axios.create({
   baseURL: host,
