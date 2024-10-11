@@ -1,9 +1,18 @@
 import axios from "axios";
 
 // Axios 인스턴스 생성
-const api = axios.create({
+/*const api = axios.create({
   baseURL:
     "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server", // Django 서버의 기본 경로
+});*/
+
+const host =
+  window.location.hostname === "localhost"
+    ? "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server"
+    : "api";
+
+export const apiClient = axios.create({
+  baseURL: host,
 });
 
 // 로그인 요청
