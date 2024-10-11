@@ -6,13 +6,13 @@ import axios from "axios";
     "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server", // Django 서버의 기본 경로
 });*/
 
-const host =
+const api =
   window.location.hostname === "localhost"
     ? "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server"
     : "api";
 
 export const apiClient = axios.create({
-  baseURL: host,
+  baseURL: api,
 });
 
 // 로그인 요청
