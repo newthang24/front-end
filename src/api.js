@@ -9,7 +9,7 @@ import axios from "axios";
 const host =
   window.location.hostname === "localhost"
     ? "http://ec2-43-203-221-193.ap-northeast-2.compute.amazonaws.com/server"
-    : "/server"; // 배포 환경에서는 상대 경로 사용
+    : "api"; // 배포 환경에서는 상대 경로 사용
 
 export const api = axios.create({
   baseURL: host,
